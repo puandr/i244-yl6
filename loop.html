@@ -2,19 +2,35 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>Kodune Ülesanne</title>
+	<title>Kodune Ülesanne 6, Andrei Pugatšov</title>
 	<style type="text/css">
 	.active { background: skyblue; padding: 10px;}
 	</style>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-	<script type="text/javascript">
+	<script type="text/javascript">		
 		$(document).ready(function() {
-			$('li').first().addClass('active')
-		});
-		$('#next').first().click(function(){
+			$("li").first().addClass("active");		
 			
-		})
+			$("#next").first().click(function(){				
+				if ($(".active").next().is("li")) {					
+					$(".active").next().addClass("active");
+					$(".active").first().removeClass("active");
+				} else if (!($(".active").next().is("li"))){
+					$("li").first().addClass("active");
+					$("li").last().removeClass("active");
+				}
+			});
 
+			$("#prev").first().click(function(){				
+				if ($(".active").prev().is("li")) {					
+					$(".active").prev().addClass("active");
+					$(".active").last().removeClass("active");
+				} else if (!($(".active").prev().is("li"))){
+					$("li").last().addClass("active");
+					$("li").first().removeClass("active");
+				}
+			});
+		});
 	</script>
 </head>
 <body>
